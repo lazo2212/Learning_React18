@@ -36,7 +36,30 @@ const BookList = () => {
 };
 
 const EventExamples = () => {
-  return <h1>events</h1>;
+  const handleFormInput = (e) => {
+    console.log(e.target.value);
+  };
+  const handleButtonInput = () => {
+    alert('handle button click');
+  };
+  const handleFormSubmission = (e) => {
+    e.preventDefault();
+    console.log('form submitted');
+  };
+  return (
+    <section>
+      <form onSubmit={handleFormSubmission}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleFormInput}
+          style={{ margin: '1rem 0' }}
+        />
+      </form>
+      <button onClick={handleButtonInput}>click me</button>
+    </section>
+  );
 };
 
 const Book = ({ title, author, img }) => {
